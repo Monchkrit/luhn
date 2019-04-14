@@ -18,25 +18,23 @@ module Luhn
                 puts "The even digits are #{numarray[i]}"
                 testval = numarray[i] + numarray[i]
                 puts "The digit doubled is #{testval}"
+                numarray[i] = testval
                 if testval >= 10
                     numarray[i] = testval - 9
                     puts "Numarray - 9 = #{numarray[i]}"
                 end
             end
-            
-            count += 1
  #           puts numarray[i]
             i -= 1
+            count += 1
             
         end
         puts "The current value of the numarray is #{numarray}"
 # In this loop I will sum all the digits
-        arrsum = 0
-        numarray.each { |x|
-            arrsum = arrsum + numarray[x] }
+        arrsum = numarray.sum
         puts arrsum
 
-        if arrsum % 10 == 0
+        if (arrsum % 10) == 0 && (numarray.length % 2) == 0
             return true
         end
         return false
