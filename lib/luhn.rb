@@ -14,7 +14,7 @@ module Luhn
         i = length - 1
         count = 0
         while i > 0
-            if count % 2 == 0
+            if i % 2 != 0
                 puts "The even digits are #{numarray[i]}"
                 testval = numarray[i] + numarray[i]
                 puts "The digit doubled is #{testval}"
@@ -27,16 +27,17 @@ module Luhn
  #           puts numarray[i]
             i -= 1
             count += 1
-            
         end
+
         puts "The current value of the numarray is #{numarray}"
 # In this loop I will sum all the digits
         arrsum = numarray.sum
         puts arrsum
 
-        if (arrsum % 10) == 0 && (numarray.length % 2) == 0
+        if arrsum % 10 == 0
             return true
         end
+    else
         return false
     end
 end
